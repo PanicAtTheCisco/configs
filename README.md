@@ -1,5 +1,9 @@
 # linux-configs
-My Linux customization configs
+My Linux customization configs for:
+- zsh and powerlevel10k
+- vim
+
+Others to be added as needed
 
 
 ## Note:
