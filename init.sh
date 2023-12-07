@@ -1,5 +1,12 @@
 #!/bin/bash
 
+if [[ $EUID -ne 0 ]]
+then
+  printf 'Must be run as root, exiting!\n'
+  tput cnorm
+  exit 1
+fi
+
 installed = true
 packagesNeeded='wget git zsh'
 if [ -x "$(command -v apk)" ];       
