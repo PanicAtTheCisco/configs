@@ -44,7 +44,7 @@ fi
 git clone https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
 unzip -q Hack.zip -d ~/HackNF
 
-if [ $installed ]; 
+if [ $installed == true ]; 
 then 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
