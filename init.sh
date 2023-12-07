@@ -45,7 +45,7 @@ git clone https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.
 unzip -q Hack.zip -d /home/$SUDO_USER/HackNF
 
 if [[ $installed == true ]]; 
-then 
+do 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
@@ -58,19 +58,19 @@ then
     read vim_config
 
     if [[ "$zsh_config" == [yY] ]];
-    then
+    do
         mv /home/$SUDO_USER/.zshrc /home/$SUDO_USER/backup_configs/.zshrc_old
         cp /home/$SUDO_USER/configs/.zshrc /home/$SUDO_USER/.zshrc
     fi
     
     if [[ "$p10k_config" == [yY] ]];
-    then
+    do
         mv /home/$SUDO_USER/.p10k.zsh /home/$SUDO_USER/backup_configs/.p10k.zsh_old
         cp /home/$SUDO_USER/configs/.p10k.zsh /home/$SUDO_USER/.p10k.zsh
     fi
 
     if [[ "$vim_config" == [yY] ]];
-    then
+    do
         mv /home/$SUDO_USER/.vimrc /home/$SUDO_USER/backup_configs/.vimrc_old
         cp /home/$SUDO_USER/configs/.vimrc /home/$SUDO_USER/.vimrc
     fi
