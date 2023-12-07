@@ -8,14 +8,14 @@ then
 fi
 
 installed = true
-packagesNeeded='wget git zsh'
+packagesNeeded="wget git zsh"
 if [ -x "$(command -v apk)" ];       
 then 
     apk add --no-cache $packagesNeeded
 
 elif [ -x "$(command -v apt-get)" ]; 
 then 
-    apt-get install $packagesNeeded
+    apt install $packagesNeeded
 
 elif [ -x "$(command -v dnf)" ];     
 then 
