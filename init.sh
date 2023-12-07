@@ -11,30 +11,30 @@ installed = true
 packagesNeeded="wget git zsh"
 if [ -x "$(command -v apk)" ];       
 then 
-    apk add --no-cache $packagesNeeded
+    sudo apk add --no-cache $packagesNeeded
 
 elif [ -x "$(command -v apt-get)" ]; 
 then 
-    apt install $packagesNeeded
+    sudo apt install $packagesNeeded
 
 elif [ -x "$(command -v dnf)" ];     
 then 
-    dnf install $packagesNeeded
+    sudo dnf install $packagesNeeded
 s
 elif [ -x "$(command -v zypper)" ];  
 then 
-    zypper install $packagesNeeded
+    sudo zypper install $packagesNeeded
 
 elif [ -x "$(command -v pacman)" ];  
 then 
-    pacman -sS $packagesNeeded
+    sudo pacman -sS $packagesNeeded
 
 else 
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; 
     $installed = false
 fi
 
-chsh -s /usr/bin/zsh
+sudo chsh -s /usr/bin/zsh
 
 mkdir /home/$SUDO_USER/configs
 mkdir /home/$SUDO_USER/backup_configs
