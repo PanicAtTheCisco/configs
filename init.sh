@@ -42,7 +42,7 @@ else
 fi
 
 git clone https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/Hack.zip
-unzip -q Hack.zip -d ~/HackNF
+unzip -q Hack.zip -d /home/$SUDO_USER/HackNF
 
 if [ $installed == true ]; 
 then 
