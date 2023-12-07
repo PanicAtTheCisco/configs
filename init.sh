@@ -41,8 +41,10 @@ else
     $installed = false
 fi
 
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.tar.xz
-tar -xvf Hack.tar.xz -C /home/$SUDO_USER/configs
+wget -O /home/$SUDO_USER/configs "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.tar.xz"
+cd /home/$SUDO_USER/configs
+tar -xzvf Hack.tar.xz -C /home/$SUDO_USER/configs
+cd
 
 if [[ $installed == true ]]; then 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
