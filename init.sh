@@ -43,7 +43,7 @@ fi
 
 wget -O /home/$SUDO_USER/configs "https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.tar.xz"
 cd /home/$SUDO_USER/configs
-tar -xzvf Hack.tar.xz -C /home/$SUDO_USER/configs
+tar -xzvf Hack.tar.xz -C /home/$SUDO_USER/configs/Hack
 cd
 
 if [[ $installed == true ]]; then 
