@@ -44,7 +44,7 @@ then
   exit 1
 fi
 
-packagesNeeded="wget git zsh"
+packagesNeeded="wget curl git zsh"
 #Alpine
 if [ -x "$(command -v apk)" ];       
 then 
