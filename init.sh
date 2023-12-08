@@ -21,8 +21,10 @@ finishConfigs() {
     mv ~/.vimrc ~/backup_configs/.vimrc_old
     cp ~/configs/.vimrc ~/.vimrc
 
-    sudo git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-    sudo git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    sudo su
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+    su $SUDO_USER
 }
 
 # if [[ $EUID -ne 0 ]]
@@ -67,7 +69,8 @@ fi
 su $SUDO_USER
 finishConfigs
 
-echo "\nHack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
+echo ""
+echo "Hack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
 echo "Install finished, restart your terminal to complete!"
