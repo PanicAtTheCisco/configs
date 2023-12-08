@@ -1,5 +1,6 @@
 # linux-configs
 - Download the init.sh with git/curl/wget and run. Will install and setup most of the setup automatically except for font.
+- Script and configs are currently W.I.P
 
 My Linux customization configs for:
 - zsh
