@@ -43,7 +43,7 @@ else
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; 
 fi
 
-echo "Hack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
+echo "\nHack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
 echo "Install finished, restart your terminal to complete!"
