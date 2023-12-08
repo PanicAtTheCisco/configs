@@ -41,9 +41,6 @@ else
     $installed = false
 fi
 
-curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Hack.tar.xz
-tar -xzvf Hack.tar.xz -C /home/$SUDO_USER/configs/
-
 if [[ $installed == true ]]; then 
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -77,7 +74,7 @@ if [[ $installed == true ]]; then
     sudo chsh -s /usr/bin/zsh
 fi
 
-echo "Font will have to be manually installed and enabled."
+echo "Hack Nerd Font will have to be manually installed and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
 echo "Install finished, restart your terminal to complete!"
