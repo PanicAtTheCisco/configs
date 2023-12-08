@@ -21,16 +21,11 @@ finishConfigs() {
     mv ~/.vimrc ~/backup_configs/.vimrc_old
     cp ~/configs/.vimrc ~/.vimrc
 
+    #TODO: Install Hack Nerd Font
+
     git clone https://github.com/zsh-users/zsh-autosuggestions.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh}/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh}/plugins/zsh-syntax-highlighting
 }
-
-# if [[ $EUID -ne 0 ]]
-# then
-#   printf 'Must be run as root, exiting!\n'
-#   tput cnorm
-#   exit 1
-# fi
 
 packagesNeeded="wget curl git zsh"
 #Alpine
@@ -70,4 +65,4 @@ echo ""
 echo "Hack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
-echo "Install finished, restart your terminal to complete!"
+echo "Install finished, log out and back in to complete!"
