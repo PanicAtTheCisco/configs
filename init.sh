@@ -49,36 +49,34 @@ packagesNeeded="wget git zsh"
 if [ -x "$(command -v apk)" ];       
 then 
     sudo apk add --no-cache $packagesNeeded
-    finishConfigs
 
 #Debian/Ubuntu
 elif [ -x "$(command -v apt-get)" ]; 
 then 
     sudo apt install $packagesNeeded
-    finishConfigs
 
 #Fedora/Red Hat
 elif [ -x "$(command -v dnf)" ];     
 then 
     sudo dnf install $packagesNeeded
-    finishConfigs
 
 #OpenSUSE
 elif [ -x "$(command -v zypper)" ];  
 then 
     sudo zypper install $packagesNeeded
-    finishConfigs
 
 #Arch
 elif [ -x "$(command -v pacman)" ];  
 then 
     sudo pacman -sS $packagesNeeded
-    finishConfigs
 
 #Alert if failed
 else 
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; 
+    exit 1
 fi
+
+finishConfigs
 
 echo "\nHack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
