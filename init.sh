@@ -12,24 +12,14 @@ finishConfigs() {
 
     git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 
-    read -i "Use zsh config? (y/n): " zsh_config
-    read -i "Use p10k config? (y/n): " p10k_config
-    read -i "Use vim config? (y/n): " vim_config
+    mv ~/.zshrc ~/backup_configs/.zshrc_old
+    cp ~/configs/.zshrc ~/.zshrc
 
-    if [[ "$zsh_config" == [yY] ]]; then
-        mv ~/.zshrc ~/backup_configs/.zshrc_old
-        cp ~/configs/.zshrc ~/.zshrc
-    fi
+    mv ~/.p10k.zsh ~/backup_configs/.p10k.zsh_old
+    cp ~/configs/.p10k.zsh ~/.p10k.zsh
 
-    if [[ "$p10k_config" == [yY] ]]; then
-        mv ~/.p10k.zsh ~/backup_configs/.p10k.zsh_old
-        cp ~/configs/.p10k.zsh ~/.p10k.zsh
-    fi
-
-    if [[ "$vim_config" == [yY] ]]; then
-        mv ~/.vimrc ~/backup_configs/.vimrc_old
-        cp ~/configs/.vimrc ~/.vimrc
-    fi
+    mv ~/.vimrc ~/backup_configs/.vimrc_old
+    cp ~/configs/.vimrc ~/.vimrc
 
     git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
