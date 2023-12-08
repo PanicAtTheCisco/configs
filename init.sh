@@ -14,7 +14,7 @@ wget -O /home/$SUDO_USER/configs/.zshrc https://raw.githubusercontent.com/PanicA
 wget -O /home/$SUDO_USER/configs/.vimrc https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.vimrc
 wget -O /home/$SUDO_USER/configs/.p10k.zsh https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.p10k.zsh
 
-installed = true
+installed=true
 packagesNeeded="wget git zsh"
 if [ -x "$(command -v apk)" ];       
 then 
@@ -38,7 +38,7 @@ then
 
 else 
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; 
-    $installed = false
+    installed=false
 fi
 
 if [[ $installed == true ]]; then 
