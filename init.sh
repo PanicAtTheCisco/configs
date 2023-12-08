@@ -74,7 +74,7 @@ if [[ $installed == true ]]; then
     sudo chsh -s /usr/bin/zsh
 fi
 
-echo "Hack Nerd Font will have to be manually installed and enabled."
+echo "Hack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
 echo "Install finished, restart your terminal to complete!"
