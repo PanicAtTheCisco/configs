@@ -1,5 +1,42 @@
 #!/bin/bash
 
+finishConfigs() {
+    mkdir /home/$SUDO_USER/configs
+    mkdir /home/$SUDO_USER/backup_configs
+
+    wget -O /home/$SUDO_USER/configs/.zshrc https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.zshrc
+    wget -O /home/$SUDO_USER/configs/.vimrc https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.vimrc
+    wget -O /home/$SUDO_USER/configs/.p10k.zsh https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.p10k.zsh
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+
+    read -i "Use zsh config? (y/n): " zsh_config
+    read -i "Use p10k config? (y/n): " p10k_config
+    read -i "Use vim config? (y/n): " vim_config
+
+    if [[ "$zsh_config" == [yY] ]]; then
+        mv /home/$SUDO_USER/.zshrc /home/$SUDO_USER/backup_configs/.zshrc_old
+        cp /home/$SUDO_USER/configs/.zshrc /home/$SUDO_USER/.zshrc
+    fi
+
+    if [[ "$p10k_config" == [yY] ]]; then
+        mv /home/$SUDO_USER/.p10k.zsh /home/$SUDO_USER/backup_configs/.p10k.zsh_old
+        cp /home/$SUDO_USER/configs/.p10k.zsh /home/$SUDO_USER/.p10k.zsh
+    fi
+
+    if [[ "$vim_config" == [yY] ]]; then
+        mv /home/$SUDO_USER/.vimrc /home/$SUDO_USER/backup_configs/.vimrc_old
+        cp /home/$SUDO_USER/configs/.vimrc /home/$SUDO_USER/.vimrc
+    fi
+
+    git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
+    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
+
+    sudo chsh -s $(which zsh)
+}
+
 if [[ $EUID -ne 0 ]]
 then
   printf 'Must be run as root, exiting!\n'
@@ -47,42 +84,3 @@ echo "\nHack Nerd Font will have to be manually installed from "https://github.c
 echo "May have to run 'p10k configure' to get icons to render correctly."
 
 echo "Install finished, restart your terminal to complete!"
-
-
-
-finishConfigs() {
-    mkdir /home/$SUDO_USER/configs
-    mkdir /home/$SUDO_USER/backup_configs
-
-    wget -O /home/$SUDO_USER/configs/.zshrc https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.zshrc
-    wget -O /home/$SUDO_USER/configs/.vimrc https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.vimrc
-    wget -O /home/$SUDO_USER/configs/.p10k.zsh https://raw.githubusercontent.com/PanicAtTheCisco/linux-configs/main/.p10k.zsh
-
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-    git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-
-    read -i "Use zsh config? (y/n): " zsh_config
-    read -i "Use p10k config? (y/n): " p10k_config
-    read -i "Use vim config? (y/n): " vim_config
-
-    if [[ "$zsh_config" == [yY] ]]; then
-        mv /home/$SUDO_USER/.zshrc /home/$SUDO_USER/backup_configs/.zshrc_old
-        cp /home/$SUDO_USER/configs/.zshrc /home/$SUDO_USER/.zshrc
-    fi
-
-    if [[ "$p10k_config" == [yY] ]]; then
-        mv /home/$SUDO_USER/.p10k.zsh /home/$SUDO_USER/backup_configs/.p10k.zsh_old
-        cp /home/$SUDO_USER/configs/.p10k.zsh /home/$SUDO_USER/.p10k.zsh
-    fi
-
-    if [[ "$vim_config" == [yY] ]]; then
-        mv /home/$SUDO_USER/.vimrc /home/$SUDO_USER/backup_configs/.vimrc_old
-        cp /home/$SUDO_USER/configs/.vimrc /home/$SUDO_USER/.vimrc
-    fi
-
-    git clone https://github.com/zsh-users/zsh-autosuggestions.git $ZSH_CUSTOM/plugins/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/plugins/zsh-syntax-highlighting
-
-    sudo chsh -s $(which zsh)
-}
