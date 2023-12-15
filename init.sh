@@ -35,26 +35,27 @@ then
 
 #Debian/Ubuntu
 elif [ -x "$(command -v apt-get)" ]; 
-then 
-    sudo apt install $packagesNeeded
+then
+    $packagesNeeded += " nala"
+    sudo apt install $packagesNeeded -y
 
 #Fedora/Red Hat
 elif [ -x "$(command -v dnf)" ];     
-then 
-    sudo dnf install $packagesNeeded
+then
+    sudo dnf install $packagesNeeded -y
 
 #OpenSUSE
 elif [ -x "$(command -v zypper)" ];  
-then 
-    sudo zypper install $packagesNeeded
+then
+    sudo zypper install $packagesNeeded -y
 
 #Arch
 elif [ -x "$(command -v pacman)" ];  
-then 
-    sudo pacman -sS $packagesNeeded
+then
+    sudo pacman -sS $packagesNeeded -y
 
 #Alert if failed
-else 
+else
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: $packagesNeeded">&2; 
     exit 1
 fi
@@ -64,5 +65,5 @@ finishConfigs
 echo ""
 echo "Hack Nerd Font will have to be manually installed from "https://github.com/ryanoasis/nerd-fonts/releases" and enabled."
 echo "May have to run 'p10k configure' to get icons to render correctly."
-
+sleep(2)
 echo "Install finished, log out and back in to complete!"
