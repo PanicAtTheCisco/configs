@@ -13,6 +13,9 @@ Configs for WSL:
 
 Others to be added as needed
 
+## TODO:
+- Refactor this repo to reflect current configs and have better organization
+- Refactor and finish script
 
 ## Note:
 - zsh, git, and wget are installed with this script in case they are not instlled already
