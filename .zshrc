@@ -109,6 +109,7 @@ source $ZSH/oh-my-zsh.sh
 
 #Uncomment if on WSL, gets rid of the annonying folder highlighting
 #LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
+#alias powershell='powershell.exe'
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
