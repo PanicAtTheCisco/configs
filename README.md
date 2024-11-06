@@ -7,6 +7,10 @@ dotfiles for:
 - powerlevel10k
 - vim
 
+Configs for WSL:
+- Remnove folder highlighting
+- Powershell alias
+
 Others to be added as needed
 
 
