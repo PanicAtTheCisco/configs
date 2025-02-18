@@ -8,7 +8,7 @@ dotfiles for:
 - vim/neovim
 
 Configs for WSL:
-- Remnove folder highlighting
+- Remove folder highlighting for Windows folders
 - Powershell alias
 
 Others to be added as needed
