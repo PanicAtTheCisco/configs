@@ -5,7 +5,7 @@
 dotfiles for:
 - zsh
 - powerlevel10k
-- vim
+- vim/neovim
 
 Configs for WSL:
 - Remnove folder highlighting
