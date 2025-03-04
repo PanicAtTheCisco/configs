@@ -107,9 +107,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#Uncomment if on WSL, gets rid of the annonying folder highlighting
-#LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS
-#alias powershell='powershell.exe'
+#Uncomment if on WSL
+#zstyle ':completion:*' list-colors                   # Gets rid of the annonying folder highlighting
+#LS_COLORS=$LS_COLORS:'ow=1;34:' ; export LS_COLORS   # Gets rid of the annonying tab autocomplete highlighting
+#alias powershell='powershell.exe'                    # Just an alias to powershell for easy access
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
