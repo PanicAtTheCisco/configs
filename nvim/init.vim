@@ -16,9 +16,11 @@ syntax on                    " syntax highlighting
 set mouse=a                  " enable mouse click
 set clipboard=unnamedplus    " using system clipboard
 filetype plugin on
-set cursorline               " highlight current cursorline
 set ttyfast                  " Speed up scrolling in Vim
 
 call plug#begin()
     Plug 'beauwilliams/statusline.lua'
+    Plug 'Mofiqul/vscode.nvim'
 call plug#end()
+
+colorscheme vscode
